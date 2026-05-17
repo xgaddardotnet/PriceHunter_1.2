@@ -1,4 +1,6 @@
 exclude:
   - node_modules
+  - '**/node_modules'
   - '.git'
   - '.gitignore'
+  - Bilişim_projesi_mağazalar_2_1
