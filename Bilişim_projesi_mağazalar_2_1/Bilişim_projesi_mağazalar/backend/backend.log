@@ -1,0 +1,7 @@
+◇ injecting env (3) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+
+🚀 PriceHunter AI Backend çalışıyor: http://localhost:5000
+📊 Health check: http://localhost:5000/api/health
+🔍 Arama: http://localhost:5000/api/search?q=iphone
+📦 Ürünler: http://localhost:5000/api/products
+

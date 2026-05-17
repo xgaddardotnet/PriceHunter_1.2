@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #ef4444; /* Neon Red */
+  --color-brand-secondary: #3b82f6; /* Neon Blue */
+  --color-brand-accent: #f43f5e; /* Rose / Pinkish Red */
+  --color-bg-deep: #000000;
+  --color-bg-surface: #0a0a0a;
+  
+  --font-inter: "Inter", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+  
+  --navbar-height: 90px;
+}
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  
+  --glass-bg: rgba(10, 10, 10, 0.8);
+  --glass-border: rgba(239, 68, 68, 0.15); /* Red tinted border */
+  --glass-shine: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(255,255,255,0) 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: var(--color-bg-deep);
+  color: rgb(var(--foreground-rgb));
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Premium Aurora Background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.2) 0%, transparent 40%), /* Blue */
+    radial-gradient(circle at 100% 100%, rgba(239, 68, 68, 0.15) 0%, transparent 40%), /* Red */
+    radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.05) 0%, transparent 50%); /* Rose */
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Typography Hub */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-outfit);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #60a5fa 0%, #f87171 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  text-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+@utility glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+@utility glass-card {
+  @apply glass rounded-[32px] overflow-hidden transition-all duration-500;
+  background-image: var(--glass-shine);
+}
+
+.glass-card:hover {
+  border-color: rgba(239, 68, 68, 0.5); /* Red border hover */
+  box-shadow: 0 0 30px -5px rgba(59, 130, 246, 0.3), inset 0 0 20px -10px rgba(239, 68, 68, 0.2); /* Mix blue out, red in */
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-bold transition-all duration-300 active:scale-95;
+}
+
+@utility btn-primary {
+  @apply btn;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  box-shadow: 0 0 20px 0 rgba(239, 68, 68, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary:hover {
+  @apply shadow-[0_0_30px_5px_rgba(239,68,68,0.7)] scale-[1.02] brightness-125;
+}
+
+@utility btn-secondary {
+  @apply glass text-slate-200 border-white/10 hover:bg-white/5;
+}
+
+@utility input {
+  @apply w-full bg-slate-900/50 border border-white/5 rounded-2xl px-6 py-4 text-slate-200 focus:bg-slate-900 focus:border-brand-primary outline-none transition-all flex items-center;
+}
+
+@utility product-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-10;
+}
+
+@utility product-card {
+  @apply glass-card flex flex-col;
+}
+
+@utility product-image-area {
+  @apply relative h-52 w-full flex items-center justify-center p-6 bg-black overflow-hidden border-b border-red-500/10;
+}
+
+@utility product-image-glow {
+  @apply absolute inset-0 opacity-40 blur-[60px] pointer-events-none;
+}
+
+@utility badge {
+  @apply px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest;
+}
+
+@utility hover-glow {
+  &:hover {
+    @apply shadow-[0_0_25px_rgba(239,68,68,0.5)];
+  }
+}
+
+.gradient-border {
+  position: relative;
+  background: var(--color-bg-surface);
+  border-radius: 20px;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.3;
+}
+

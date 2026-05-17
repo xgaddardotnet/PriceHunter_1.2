@@ -1,0 +1,14 @@
+{
+  "1": {
+    "favorites": [],
+    "alerts": [
+      {
+        "id": 1779012222257,
+        "productId": 1,
+        "targetPrice": 17720,
+        "createdAt": "2026-05-17T10:03:42.257Z",
+        "active": true
+      }
+    ]
+  }
+}
